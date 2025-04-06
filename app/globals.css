@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 212 100% 40%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 212 100% 40%;
+  --radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Dark theme styles */
+.dark-card {
+  @apply bg-gradient-to-br from-blue-900/30 to-blue-800/30 backdrop-blur-sm rounded-xl border border-blue-500/30 shadow-lg;
+}
+
+.dark-section {
+  @apply py-16 sm:py-24 relative;
+}
+
+.dark-heading {
+  @apply text-3xl sm:text-4xl font-bold text-white tracking-tight;
+}
+
+.dark-subheading {
+  @apply text-lg text-blue-200 max-w-3xl mx-auto;
+}
+
+.dark-button-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-5 rounded transition-colors duration-200;
+}
+
+.dark-button-secondary {
+  @apply bg-transparent hover:bg-blue-500/10 text-blue-400 font-medium py-2.5 px-5 border border-blue-500/50 rounded transition-colors duration-200;
+}
+
+.dark-grid {
+  @apply grid gap-6 md:gap-8;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glow effects */
+.glow-text {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.glow-border {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* Add these styles at the end of the file to ensure black background in appropriate places */
+
+/* Black background styles */
+.bg-true-black {
+  background-color: #000000;
+}
+
+/* Fix for iOS status bar */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .ios-status-bar-fix {
+    padding-top: env(safe-area-inset-top);
+    background-color: #000000;
+  }
+}
+
+html,
+body {
+  background-color: #000000;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+/* Dark theme variables with true black */
+.dark {
+  --background: 0 0 0;
+  --foreground: 255 255 255;
+  --card: 10 10 10;
+  --card-foreground: 255 255 255;
+  --popover: 0 0 0;
+  --popover-foreground: 255 255 255;
+  --primary: 142 142 160;
+  --primary-foreground: 0 0 0;
+  --secondary: 15 15 15;
+  --secondary-foreground: 255 255 255;
+  --muted: 20 20 20;
+  --muted-foreground: 160 160 160;
+  --accent: 20 20 20;
+  --accent-foreground: 255 255 255;
+  --destructive: 230 50 50;
+  --destructive-foreground: 255 255 255;
+  --border: 30 30 30;
+  --input: 30 30 30;
+  --ring: 142 142 160;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 640px) {
+  .dark-heading {
+    @apply text-2xl;
+  }
+
+  .dark-subheading {
+    @apply text-base;
+  }
+
+  .container {
+    @apply px-4;
+  }
+}
+
